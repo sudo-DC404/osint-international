@@ -1,6 +1,6 @@
-# 🌍 International OSINT Tool
+# 🌍 International OSINT Tool v2.0
 
-A comprehensive OSINT tool for **phone number lookups** and **username/people searches** with a focus on **non-US countries** and international platforms.
+A comprehensive OSINT platform for **advanced intelligence gathering** with focus on **international targets** and **multi-source data collection**.
 
 ## Features
 
@@ -24,8 +24,41 @@ A comprehensive OSINT tool for **phone number lookups** and **username/people se
 - Targeted search categories (International, Social Media, Developer platforms)
 - Direct profile URLs for found accounts
 
+### 🌐 Domain OSINT **[NEW]**
+- WHOIS lookups (registrar, creation date, expiration, organization)
+- DNS record enumeration (A, AAAA, MX, NS, TXT)
+- Name server identification
+- Domain registration history
+- Automated data collection and storage
+
+### 💥 Breach Data Integration **[NEW]**
+- HaveIBeenPwned API integration
+- Email breach checking
+- Password paste detection
+- Alternative breach databases (DeHashed, LeakCheck, IntelX)
+- Manual and API-based checking
+
+### 🖼️ Reverse Image Search **[NEW]**
+- Image hash calculation (SHA-256)
+- Multiple search engine support:
+  - Google Images
+  - Yandex Images
+  - TinEye
+  - Bing Visual Search
+  - PimEyes (facial recognition)
+- Local image file analysis
+- Search URL generation
+
+### 🕵️ Dark Web Search **[NEW]**
+- Ahmia.fi integration (clearnet Tor search)
+- .onion link discovery
+- Dark web search engines directory
+- Tor Browser integration guidance
+- Multiple dark web search options
+
 ### 📊 Data Management
 - SQLite database for all searches
+- 7 specialized data tables
 - Search history tracking
 - Export to JSON or Markdown reports
 - Timestamp tracking for all activities
@@ -35,10 +68,10 @@ A comprehensive OSINT tool for **phone number lookups** and **username/people se
 ### Prerequisites
 ```bash
 # Debian/Ubuntu/Kali
-sudo apt install python3 python3-phonenumbers
+sudo apt install python3 python3-phonenumbers python3-whois python3-dnspython
 
 # Or via pip (if using virtual environment)
-pip install phonenumbers requests
+pip install phonenumbers requests python-whois dnspython
 ```
 
 ### Setup
@@ -103,12 +136,21 @@ osint → 2 → target_username → 1 (All platforms)
 
 ### Main Menu Options
 
+**Core Modules:**
 1. **Phone Number Lookup** - Analyze international phone numbers
 2. **Username/People Search** - Find profiles across platforms
 3. **Email Search** - Get tool recommendations for email OSINT
-4. **View Recent Searches** - Browse search history
-5. **Export Results** - Export to JSON or Markdown
-6. **Country Selection Guide** - Quick country code reference
+
+**Advanced Modules:**
+4. **Domain OSINT (WHOIS/DNS)** - Domain registration and DNS analysis
+5. **Breach Data Check** - Email breach detection
+6. **Reverse Image Search** - Find images across the web
+7. **Dark Web Search** - Search Tor hidden services
+
+**Utilities:**
+8. **View Recent Searches** - Browse search history
+9. **Export Results** - Export to JSON or Markdown
+0. **Country Selection Guide** - Quick country code reference
 q. **Quit**
 
 ### Phone Number Format
@@ -146,6 +188,83 @@ Examples:
 **4. Developer Platforms (5 platforms)**
 - GitHub, GitLab, Behance, Dribbble
 - ~10 seconds
+
+### NEW FEATURE Examples
+
+#### Domain OSINT
+```bash
+osint → 4 → google.com
+```
+
+**Output:**
+```
+[*] Performing WHOIS lookup...
+[+] WHOIS data retrieved
+  Registrar: MarkMonitor Inc.
+  Created: 1997-09-15
+  Expires: 2028-09-14
+
+[*] Performing DNS lookups...
+  A Records: 142.250.185.46
+  MX Records: smtp.google.com
+  NS Records: ns1.google.com, ns2.google.com
+```
+
+#### Breach Data Check
+```bash
+osint → 5 → email@example.com
+```
+
+**Output:**
+```
+[!] Email found in 3 breaches!
+
+• Collection #1
+  Date: 2019-01-07
+  Data: Email addresses, Passwords
+
+• LinkedIn
+  Date: 2021-06-22
+  Data: Email addresses, Names, Phone numbers
+```
+
+#### Reverse Image Search
+```bash
+osint → 6 → /path/to/image.jpg
+```
+
+**Output:**
+```
+Manual search options:
+
+• Google Images
+  https://www.google.com/searchbyimage
+
+• Yandex Images
+  https://yandex.com/images/
+
+• PimEyes (Faces)
+  https://pimeyes.com/
+
+Image hash: a3f5e9c2b1d4...
+```
+
+#### Dark Web Search
+```bash
+osint → 7 → hacking forums
+```
+
+**Output:**
+```
+[*] Searching Ahmia.fi...
+[+] Found 15 .onion results
+
+  1. http://example123456789abc.onion/forums
+  2. http://darknet987654321xyz.onion/community
+  ...
+
+[!] To access .onion sites, you need Tor Browser
+```
 
 ## Supported Platforms
 
