@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Database files (sensitive)
+*.db
+*.sqlite
+*.sqlite3
+
+# Results directory (sensitive)
+osint_results/
+pentest_evidence/
+
+# User data
+.pentest_aliases
+.cmd_runner_history
+.cmd_runner_favorites
+.stress_test_profiles.json
+.osint_international.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+
+# Personal notes
+TODO.txt
+notes.txt
